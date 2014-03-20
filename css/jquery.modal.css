@@ -1,0 +1,18 @@
+#paging  li{
+	list-style: none;
+	float: left;
+}
+#paging a{
+	display: block;
+	float: left;
+	background: #FFF;
+	border: 1px solid #666;
+	color: #666;
+	padding:4px 8px;
+	margin-right: 5px;
+	font-weight: bold;
+	text-decoration: none;
+}
+#paging a.selected{
+	background: #DDD;
+}
