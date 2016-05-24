@@ -10,7 +10,6 @@ $(function () {
 
             paging.createPages();
             $("#paging .pageNos a:first").addClass('selected');
-
             $('a.next').bind('click', paging.moveToNext);
             $('a.prev').bind('click', paging.moveToPrev);
             $("#paging .pageNos a").live('click', paging.moveToPage);
@@ -49,12 +48,10 @@ $(function () {
                     paging.createPages();
                     paging.pageIndex = 0;
                     $("#paging .pageNos a:first").addClass('selected');
-                    //alert(paging.pageNumber+1);
                 } else {
                     paging.pageIndex = paging.pageIndex + 1;
                     $(".pageNos a").removeClass("selected");
                     $(".pageNos a").eq(paging.pageIndex).addClass("selected")
-                    //alert(paging.pageNumber+1);
                 }
             }
         },
@@ -68,17 +65,15 @@ $(function () {
             } else {
                 if (paging.pageNumber == paging.pageStart) {
 
-                    paging.pageStart = eval(paging.pageNumber - paging.pagesToDisplay);
-                    paging.pageEnd = eval(paging.pageStart + paging.pagesToDisplay);
+                    paging.pageStart = parseInt(paging.pageNumber) - parseInt(paging.pagesToDisplay);
+                    paging.pageEnd = parseInt(paging.pageStart) + parseInt(paging.pagesToDisplay);
                     paging.createPages();
                     paging.pageIndex = paging.pagesToDisplay;
                     $("#paging .pageNos a:last").addClass('selected');
-                    //alert(paging.pageNumber - 1)
                 } else {
                     paging.pageIndex = paging.pageIndex - 1;
                     $(".pageNos a").removeClass("selected");
                     $(".pageNos a").eq(paging.pageIndex).addClass("selected");
-                    //alert(paging.pageNumber - 1)
                 }
             }
         },
@@ -87,7 +82,6 @@ $(function () {
             $(".pageNos a").removeClass("selected");
             paging.pageIndex = $(this).index();
             $(".pageNos a").eq(paging.pageIndex).addClass("selected");
-            //alert($(this).text());
         }
     }
     paging.init();
